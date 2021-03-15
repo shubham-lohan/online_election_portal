@@ -1,2 +1,2 @@
 # DBMS_django
-deployment for DBPS project
+deployment for DBMS project
