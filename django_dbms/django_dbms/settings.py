@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_dbms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [root("election/templates"),root("templates")],
+        'DIRS': [BASE_DIR + "/election/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
