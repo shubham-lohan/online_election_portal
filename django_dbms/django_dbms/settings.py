@@ -25,7 +25,7 @@ SECRET_KEY = 't1cct-kwpsns0i^%-f-@veq3%#ag)1w5us00jm9cls7x*9!r+4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['election-dbms.herokuapp.com']
+ALLOWED_HOSTS = ['election-dbms.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_dbms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + "/election/templates"],
+        'DIRS': [BASE_DIR / 'election/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +120,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles');
+print(STATIC_ROOT)
