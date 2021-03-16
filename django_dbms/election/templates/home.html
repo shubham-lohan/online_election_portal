@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="utf-8">
@@ -7,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Delhi State Assembly Elections</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <style type="text/css">
     </style>
-    <link href="css/homestyle.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/homestyle.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -46,7 +47,7 @@
             <!-- <h1>Announcements</h1> -->
             <div class="row">
                 <div class="col-md-3">
-                    <div class="thumbnail"><a><img src="images/voter.png" alt="Thumbnail Image 1" class="imgfill"></a>
+                    <div class="thumbnail"><a><img src="{% static 'images/voter.png' %}" alt="Thumbnail Image 1" class="imgfill"></a>
                         <div class="caption">
                             <h3>Current &amp; Upcoming Elections</h3>
                             <p>Check out the election time of your constituency</p>
@@ -54,7 +55,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="thumbnail"><a><img src="images/results.jpg" alt="Thumbnail Image 1" class="imgfill"></a>
+                    <div class="thumbnail"><a><img src="{% static 'images/results.jpg'%}" alt="Thumbnail Image 1" class="imgfill"></a>
                         <div class="caption">
                             <h3>Analyze through past statistics</h3>
                             <p>Check out the statistics of past elections held so far!</p>
@@ -62,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="thumbnail"><a><img src="images/Click-here-to-register-online.gif"
+                    <div class="thumbnail"><a><img src="{% static 'images/Click-here-to-register-online.gif'%}"
                                 alt="Thumbnail Image 1" class="imgfill"></a>
                         <div class="caption">
                             <h3>Have you registered yet?</h3>
@@ -71,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="thumbnail"><a><img src="images/Image-10 (1).jpg" alt="Thumbnail Image 1"
+                    <div class="thumbnail"><a><img src="{% static 'images/Image-10 (1).jpg' %}" alt="Thumbnail Image 1"
                                 class="imgfill"></a>
                         <div class="caption">
                             <h3>Know your candidates</h3>
