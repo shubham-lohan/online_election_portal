@@ -25,7 +25,7 @@ SECRET_KEY = 't1cct-kwpsns0i^%-f-@veq3%#ag)1w5us00jm9cls7x*9!r+4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['election-dbms.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0','election-dbms.herokuapp.com','127.0.0.1']
 
 
 # Application definition
