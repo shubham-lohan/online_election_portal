@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
+{%block extrahead%}
+<script src="{% static 'js/register.js' %}"></script>
+{%endblock%}
+
+{%block content%}
+<SELECT id="s1" NAME="section" onChange="SelectRedirect();">
+    <Option value="">Select Option</option>
+    <Option value="voter">Voter</option>
+    <Option value="candidate">Candidate</option>
+    <Option value="party">Party</option>
+    <Option value="official">Official</option>
+</SELECT>
+
+{%endblock%}
