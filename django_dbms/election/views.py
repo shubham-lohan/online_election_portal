@@ -10,7 +10,14 @@ def home(request):
 
 
 def login(request):
-    print("test")
+    if(request.method == "POST"):
+            dict = request.POST.dict()
+            user = authenticate(request, username=['Username'], password=dict['password'])
+            if(user is not None):
+                return HttpResponse(f'logged in as {user.first_name} {user.last_name}');
+            else:
+                return HttpResponse('invalid username or password');
+ 
     return render(request, "login.html")
 
 
