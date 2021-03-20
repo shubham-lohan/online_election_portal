@@ -43,7 +43,7 @@ def register_party(request):
 def register_voter(request):
     if(request.method == "POST"):
             dict = request.POST.dict()
-            if(User.objects.filter(username=dict['Username']).exists()):
+            if(not(User.objects.filter(username=dict['Username']).exists())):
                 user = User.objects.create_user(dict['Username'],dict['firstName']+"@gmail.com",dict['password']);
 
                 user.first_name,user.last_name = dict['firstName'],dict['lastName']
