@@ -13,6 +13,7 @@ def home(request):
 def login(request):
     if(request.method == "POST"):
             dict = request.POST.dict()
+	    print(dict);
             user = authenticate(request, username=['username'], password=dict['password'])
             if(user is not None):
                 return HttpResponse(f'logged in as {user.first_name} {user.last_name}');
