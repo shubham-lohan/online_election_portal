@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -31,10 +31,16 @@ def register_party(request):
 
 
 def register_voter(request):
-    print("f")
     if(request.method == "POST"):
-            print(request.POST.dict()['dd'])
+            dict = request.POST.dict()
+            if(User.objects.filter(username=dict['Username']).exists()):
+                user = User.objects.create_user(dict['Username'],dict['firstName']+"@gmail.com",dict['password']);
 
+                user.first_name,user.last_name = dict['firstName'],dict['lastName']
+                user.save();
+                return HttpResponse('new user created');
+            else:
+                return HttpResponse('user already exists');
     return render(request, "voter_registration.html")
 
 
