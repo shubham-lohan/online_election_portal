@@ -8,7 +8,9 @@
 
 <div class="login-form">
     <form class="box" action="{% url 'login' %}" , method="post">
+       {% csrf_token %}
         <h1>Login</h1>
+
         <input type="text" name="username" placeholder="username" required>
         <input type="password" name="password" placeholder="password" required id="login-pass">
         <input type="checkbox" onclick="show_password()"><label style="color:whitesmoke;">Show Password</label>
