@@ -1,17 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
 <!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
-{%block extrahead%}
-<script src="{% static 'js/register.js' %}"></script>
+{% block extrahead %}
+<script >
+function SelectRedirect() {
+    // ON selection of section this function will work
+    //alert( document.getElementById('s1').value);
+
+    switch (document.getElementById('s1').value) {
+        case "voter":
+            window.location = "{% url 'register_voter' %}";
+            break;
+
+        case "candidate":
+            window.location = "{% url 'reg_cand'%}";
+            break;
+
+        case "party":
+            window.location = "{% url 'register_party'%}";
+            break;
+        case "official":
+            window.location = "{% url 'register_official'%}";
+            break;
+
+        /// Can be extended to other different selections of SubCategory //////
+        default:
+            // window.location = "{% url 'home'%}"; // if no selection matches then redirected to home page
+            break;
+    }// end of switch 
+}
+
+
+</script>
 {%endblock%}
 
 {%block content%}
-<SELECT id="s1" NAME="section" onChange="SelectRedirect();">
-    <Option value="">Select Option</option>
-    <Option value="voter">Voter</option>
-    <Option value="candidate">Candidate</option>
-    <Option value="party">Party</option>
-    <Option value="official">Official</option>
+<center>
+<h3>Select Option<h3>
+
+<SELECT id="s1" class="h2" NAME="section" style ="width:200px;height:30px"  onClick="SelectRedirect();">
+    <Option class="h2" value="voter">Voter</option>
+    <Option class="h2" value="candidate">Candidate</option>
+    <Option class="h2" value="party">Party</option>
+    <Option class="h2" value="official">Official</option>
 </SELECT>
 
+</center>
 {%endblock%}
