@@ -8,11 +8,14 @@ def home(request):
 
 
 def login(request):
+    print("test")
     return render(request, "login.html")
 
 
 def register(request):
+    print("f")
     return render(request, "register.html")
+
 
 
 def cand_profile(request):
@@ -28,6 +31,10 @@ def register_party(request):
 
 
 def register_voter(request):
+    print("f")
+    if(request.method == "POST"):
+            print(request.POST.dict)
+
     return render(request, "voter_registration.html")
 
 
