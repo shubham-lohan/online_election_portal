@@ -250,11 +250,14 @@ Now in the `urlpatterns` list, we will add a new `path` entry, remember to appen
  We assigned a name to the urls for our website using `name = 'login'` in 
  in `path('login', login, name='login')` .
  we can now use these names in our html files like so:
-``<a href="{% url 'login' %}">Login</a>``
-on clicking this link we will be send to the login page.
+```<a href="{% url 'login' %}">Login</a>```
+on clicking this link we will be sent to the login page.
+
 
 
 **css and javascript**
+Before we can use static resources, we need to add the line 
+```{% load static %}```
 
 Once we add the css and javascript files to the staticfiles directory, we can now include the css and javascript like so:
 ` <link href="{% static 'css/regstyle.css' %}" rel="stylesheet" type="text/css">
