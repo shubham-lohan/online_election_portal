@@ -261,6 +261,8 @@ Before we can use static resources, we need to add the line
 
 Once we add the css and javascript files to the staticfiles directory, we can now include the css and javascript like so:
 ``` <link href="{% static 'css/regstyle.css' %}" rel="stylesheet" type="text/css">```
+
+
 ```<script src="{% static 'js/bootstrap.min.js' %}"></script>```
 
 Here is all the other information you need to know for the templates:
