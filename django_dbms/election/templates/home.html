@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block rightlist %}
+<li><a href="{% url 'login' %}">
+  <span class="glyphicon glyphicon-log-in"></span>
+  Login</a></li>
+{% endblock %}
+
+
 {% block content %}
 <div class="container-fluid" id="wrap">
     <article id="art">

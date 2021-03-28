@@ -2,11 +2,21 @@
 {% load static %}
 
 {% block extrahead %}
-<link href="{% static 'css/regstyle.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/candidate_party_regstyle.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block content %}
+ <div id="mySidenav" class="sidenav">
+  <a   class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{% url 'voter_view1' %}"> Cast vote</a>
+  <a href="{% url 'voter_view2' %}">Personal Details</a>
+  <a href="{% url 'reg_cand' %}">Candidate</a>
+  <a href="{% url 'voter_view3' %}">Wealth/Profession Update</a>
+  
+</div>
 <div class="container">
+   
     <div class="login-box center">
         <div id="account-attributes-challenge" class="">
             <h1 class="txt-align-center header-text"> Fill your data</h1>
@@ -61,5 +71,8 @@
             </form>
         </div>
     </div>
+
 </div>
+<script src="{% static 'js/voter_official.js' %}"></script>
+
 {%endblock%}

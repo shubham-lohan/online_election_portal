@@ -14,11 +14,13 @@
     <link href="{% static 'css/regstyle.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/cand_profilestyle.css'%}" rel="stylesheet" type="text/css">
     <script src="{% static 'js/showpassword.js' %}"></script>
-    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
     <script src="{% static 'js/ajax-utils.js'%}"></script>
     <script src="{% static 'js/script.js'%}"></script> -->
+      <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/homestyle.css' %}" rel="stylesheet" type="text/css">
     {% block extrahead %}
 
@@ -38,11 +40,25 @@
             <div class="collapse navbar-collapse" id="defaultNavbar1">
                 <ul class=" nav navbar-nav navbar-right">
                     <!--add some details here -->
-                    <li><a href="{% url 'home' %}">About</a></li>
+                    <li><a href="{% url 'voter_view1' %}"> <span class="glyphicon glyphicon-info-sign"></span>About</a></li>
+                    {% block rightlist %}
 
-                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endblock %}
+
+                    
 
                 </ul>
+                <ul class=" nav navbar-nav navbar-left">
+                    <!--add some details here -->
+                    
+                    {% block leftlist %}
+
+                    {% endblock %}
+
+                    
+
+                </ul>
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
