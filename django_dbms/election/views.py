@@ -22,6 +22,7 @@ def login(request):
                 return HttpResponse('invalid username or password');
  
     return render(request, "login.html")
+    # return render(request, "voter_view1.html")
 
 
 def register(request):
@@ -58,3 +59,12 @@ def register_voter(request):
 
 def register_official(request):
     return render(request, "official_registration.html")
+
+def f_voter_view1(request):
+    return render(request, "voter_view1.html")
+
+def f_voter_view2(request):
+    return render(request, "voter_view2.html")
+
+def f_voter_view3(request):
+    return render(request, "voter_view3.html")
