@@ -24,6 +24,17 @@ def login(request):
     return render(request, "login.html")
     # return render(request, "voter_view1.html")
 
+def ec_official_profile(request):
+    if(request.method == "POST"):
+        election_date = request.POST.dict()
+        print(election_date)
+        start_date = election_date['start_date']
+        end_date = election_date['end_date']
+        if(start_date >= end_date):
+            return HttpResponse('Invalid Dates entered')
+        else:
+            return HttpResponse(f'New Election set from {start_date} to {end_date}');
+    return render(request, "ec_official_profile.html")
 
 def register(request):
     print("f")
@@ -33,6 +44,7 @@ def register(request):
 
 def cand_profile(request):
     return render(request, "cand_profile.html")
+
 
 
 def register_candidate(request):
