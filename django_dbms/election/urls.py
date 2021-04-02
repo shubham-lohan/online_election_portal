@@ -1,7 +1,7 @@
 from django.urls import path,re_path
 from django.conf.urls import url, include
 
-from .views import home, login, cand_profile, register_candidate, register_party, register_voter, register_official, register, f_voter_view1,f_voter_view2,f_voter_view3,ec_official_profile
+from .views import home, login, cand_profile, register_candidate, register_party, register_voter, register_official, register, f_voter_view1,f_voter_view2,f_voter_view3,ec_official_profile, admin_official_profile
 
 urlpatterns = [
     path('', home, name='home'),
@@ -9,6 +9,7 @@ urlpatterns = [
     path('register', register_voter, name='register'),
     path('profile/candidate', cand_profile, name='cand_profile'),
     path('profile/ec_official', ec_official_profile, name='ec_official_profile'),
+    path('profile/admin_official', admin_official_profile, name='admin_official_profile'),
     path('register/candidate', register_candidate, name="reg_cand"),
     path('register/party', register_party, name="register_party"),
     path('register/official', register_official, name="register_official"),
