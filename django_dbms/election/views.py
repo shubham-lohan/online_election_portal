@@ -91,3 +91,6 @@ def f_voter_view2(request):
 
 def f_voter_view3(request):
     return render(request, "voter_view3.html")
+
+def party_view(request):
+    return render(request,"party_view.html")
