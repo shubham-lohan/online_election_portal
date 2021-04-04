@@ -26,14 +26,36 @@ def login(request):
             print(dict);
             user = authenticate(request, username=dict['username'], password=dict['password'])
             if(user is not None):
-                
+
                 return HttpResponse(f'logged in as {user.first_name} {user.last_name}');
             else:
                 return HttpResponse('invalid username or password');
- 
+
     return render(request, "login.html")
     # return render(request, "voter_view1.html")
 
+def ec_official_profile(request):
+    if(request.method == "POST"):
+        election_date = request.POST.dict()
+        print(election_date)
+        start_date = election_date['start_date']
+        end_date = election_date['end_date']
+        if(start_date >= end_date):
+            return HttpResponse('Invalid Dates entered')
+        else:
+            return HttpResponse(f'New Election set from {start_date} to {end_date}');
+    return render(request, "ec_official_profile.html")
+
+def admin_official_profile(request):
+    if(request.method == "POST"):
+        candidate_details = request.POST.dict()
+        print(candidate_details)
+        candidate_id = candidate_details['candidate_id']
+        wealth = candidate_details['wealth']
+        updated_year = candidate_details['updated_year']
+        criminal_cases = candidate_details['criminal_cases']
+        return HttpResponse(f'Candidate {candidate_id} details for the year {updated_year} have been entered');
+    return render(request, "admin_official_profile.html")
 
 def register(request):
     print("f")
@@ -43,6 +65,7 @@ def register(request):
 
 def cand_profile(request):
     return render(request, "cand_profile.html")
+
 
 
 def register_candidate(request):
@@ -161,3 +184,6 @@ def f_voter_view2(request):
 
 def f_voter_view3(request):
     return render(request, "voter_view3.html")
+
+def party_view(request):
+    return render(request,"party_view.html")
