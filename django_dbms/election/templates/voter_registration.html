@@ -6,12 +6,12 @@
 <link href="{% static 'css/voter_official_regstyle.css'%}" rel="stylesheet" type="text/css">
 {% endblock %}
 {%block content%}
- <div id="mySidenav" class="sidenav">
+ <!-- <div id="mySidenav" class="sidenav">
       <a  class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="{% url 'register'%}">Register as voter</a>
+      <a href="{% url 'register'%}">Register as voter</a> -->
       <!-- <a href="{% static 'official_registration.html'%}">Register as official</a> -->
   
-</div>
+<!-- </div> -->
 <div class="container">
     <div class="login-box center">
         <div id="account-attributes-challenge" class="">
@@ -133,6 +133,6 @@
 
 
 </div>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span>
+<!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span> -->
 <script src="{% static 'js/voter_official.js' %}"></script>
 {%endblock%}
