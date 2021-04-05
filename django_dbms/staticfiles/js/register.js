@@ -20,7 +20,7 @@ function SelectRedirect() {
 
         /// Can be extended to other different selections of SubCategory //////
         default:
-            # window.location = "{% url 'home'%}"; // if no selection matches then redirected to home page
+            window.location = "{% url 'home'%}"; // if no selection matches then redirected to home page
             break;
     }// end of switch 
 }

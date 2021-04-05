@@ -39,30 +39,27 @@
      
      <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span> -->
     <!-- credits https://codepen.io/jkantner/pen/rNaPadg -->
-    <form class="choices">
+    <form class="choices"   action="{% url 'voter_view1' %}" , method="post">
 {% csrf_token %}
+        {% for t in imgs %}
         <div >
          
-            <input id="a" type="radio" name="hopping" value="a" checked>
-        <label  for="a"> A Party1<img src="{% static 'images/symbol1.PNG' %}"></label>
-
-
-         
+            <input id="a" type="radio" name="hopping" value={{t.4}} checked>
+        <label  for="a">  {{ t.0 }} {{ t.1 }} PARTY: {{ t.2 }}
+          <!-- {{ table.t.1 }} PARTY:{{ table.t.2 }}  -->
+          <img src="data:image/jpeg;base64,{{ t.3  }}">
+        </label>         
         </div>
-        <div >
-            <input id="b" type="radio" name="hopping" value="b">
-        <label  for="b"> B Party2<img src="{% static 'images/symbol1.PNG' %}"></label>
-        </div>
-        <div >
-            <input id="c" type="radio" name="hopping" value="c">
-        <label  for="c"> C Party3<img src="{% static 'images/symbol1.PNG' %}"></label>
-        </div>
+        {% endfor %}
+        
+        
+     
          <div >
             <input id="c" type="radio" name="hopping" value="c">
         <label  for="c"> NOTA </label>
         </div>
             <div class="cta-container">
-                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">CAST VOTE</button>
+                    <button id="reg-submit-button" name="castvote" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">CAST VOTE</button>
             </div>
             <center>Note: Once casted, the vote cannot change.
             </center>
