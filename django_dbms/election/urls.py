@@ -16,4 +16,5 @@ urlpatterns = [
     path('login/voter_view2',f_voter_view2,name="voter_view2"),
     path('login/voter_view3',f_voter_view3,name="voter_view3"),
     path('login/party',party_view,name="party_view"),
+    path('register/voter',register_voter,name="s"),
 ]
