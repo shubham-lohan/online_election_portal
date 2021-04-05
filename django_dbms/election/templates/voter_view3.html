@@ -3,7 +3,7 @@
 <!-- background image By A.Savin (Wikimedia Commons · WikiPhotoSpace) - Own work, FAL, https://commons.wikimedia.org/w/index.php?curid=49129197 -->
 {% load static %}
 {% block extrahead %}
-<link href="{% static 'css/voter_view2.css'%}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/voter_view3.css'%}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block rightlist %}
 <li>    
@@ -18,7 +18,7 @@
 <li><a href="{% url 'voter_view1' %}"> Cast vote</a></li>
 <li><a href="{% url 'voter_view2' %}">Personal Details</a></li>
 <li><a href="{% url 'reg_cand' %}">Candidate</a></li>
-<li><a href="{% url 'voter_view3' %}">Wealth/Profession Update</a></li>
+<li><a href="{% url 'voter_view3' %}">Wealth Update</a></li>
 
 {% endblock %}
 
@@ -38,19 +38,19 @@
     <div class="container">
         <div class="login-box center">
             <div id="account-attributes-challenge" class="">
-                <h1 class="txt-align-center header-text"> Fill wealth and profession for 2020 and press update </h1>
+                <h1 class="txt-align-center header-text"> Fill wealth in Rs. for {{year}} and press update </h1>
           
         
-                <form id="regform" action="https://login.yahoo.com/account/create?.intl=in&amp;.lang=en-IN&amp;src=ym&amp;specId=yidreg&amp;activity=uh-mail&amp;pspid=97684142&amp;.done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;done=https%3A%2F%2Fmail.yahoo.com%2Fd%3F.intl%3Din%26.lang%3Den-IN%26.partner%3Dnone%26.src%3Dfp%26activity%3Duh-mail%26pspid%3D97684142&amp;intl=in&amp;context=reg" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
-
+                <form id="regform" action="{% url 'voter_view3' %}" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
+{% csrf_token %}  
                  
      
                
                 
                  
-                 <input type="text" value=""  aria-required="true"    placeholder="Wealth" autocomplete="off"> 
+                 <input type="text" name="weal" value="{{wealth}}"  aria-required="true"    placeholder="Wealth" autocomplete="off"> 
                   
-                 <input type="text" value=""  aria-required="true"    placeholder="Profession" autocomplete="off"> 
+                 <!-- <input type="text" value=""  aria-required="true"    placeholder="Profession" autocomplete="off">  -->
                    
                  
       
@@ -61,9 +61,7 @@
                     </button>
                 </div>
 
-                <div class="cta-container">
-                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Reset</button>
-                </div>
+               
                 
          
                 <input type="hidden" data-name="alt-submit"></form>

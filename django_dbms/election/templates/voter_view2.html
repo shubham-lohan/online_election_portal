@@ -18,7 +18,7 @@
 <li><a href="{% url 'voter_view1' %}"> Cast vote</a></li>
 <li><a href="{% url 'voter_view2' %}">Personal Details</a></li>
 <li><a href="{% url 'reg_cand' %}">Candidate</a></li>
-<li><a href="{% url 'voter_view3' %}">Wealth/Profession Update</a></li>
+<li><a href="{% url 'voter_view3' %}">Wealth Update</a></li>
 
 {% endblock %}
 
@@ -39,8 +39,8 @@
     <div class="container">
         <div class="login-box center">
             <div id="account-attributes-challenge" class="">
-                <h1 class="txt-align-center header-text"> General Info</h1>
-          
+                <h1 class="txt-align-center header-text"> General    Info   </h1>
+                <p>Refresh the page to reset the values</p>
         
                 <form id="regform" action="{% url 'voter_view2' %}" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
 {% csrf_token %}           
@@ -50,11 +50,11 @@
                 <fieldset>
                     <div id="usernamereg-fullname" class="pure-g name-field field-group  ">
                         <div class="first-name pure-u-1-2">
-                            <input type="text" id="usernamereg-firstName" class="ureg-fname input-with-icon icon-name " autocomplete="given-name" name="firstName" placeholder="First&nbsp;name" aria-label="First&nbsp;name" value="" maxlength="32" aria-required="true">
+                            <input type="text" id="usernamereg-firstName" class="ureg-fname input-with-icon icon-name " autocomplete="given-name" name="firstName" placeholder="First&nbsp;name" aria-label="First&nbsp;name" value= "{{table.0.1}}" maxlength="32" aria-required="true">
                             <div id="reg-error-firstName"></div>
                         </div>
                         <div class="last-name pure-u-1-2">
-                            <input type="text" id="usernamereg-lastName" class="ureg-lname " name="lastName"   placeholder="Lastname"   value="" maxlength="32" aria-required="true" aria-invalid="false">
+                            <input type="text" id="usernamereg-lastName" class="ureg-lname " name="lastName"   placeholder="Lastname"   value="{{ table.0.2}}" maxlength="32" aria-required="true" aria-invalid="false">
                             <div id="reg-error-lastName" data-error=""></div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
         
         
                 <div class="phone-number">
-                    <input type="tel" pattern="[0-9-() ]*" id="usernamereg-phone" name="phone" class="input-with-icon icon-phone phone-no " value="" aria-required="true" role="textbox" aria-multiline="false" placeholder="Mobile phone&nbsp;number" aria-label="Mobile phone&nbsp;number">
+                    <input type="tel" pattern="[0-9-() ]*" id="usernamereg-phone" name="phone" class="input-with-icon icon-phone phone-no " value="{{ table.0.4}}" aria-required="true" role="textbox" aria-multiline="false" placeholder="Mobile phone&nbsp;number" aria-label="Mobile phone&nbsp;number">
                     <div id="reg-error-phone"></div>
                 </div>
      
@@ -93,27 +93,28 @@
                         <div class="arrow"></div>
                     </div>
                     <div class="pure-u-1-4 reg-day">
-                        <input type="tel" pattern="[0-9-() ]*" id="usernamereg-day" name="dd" value="" aria-required="true" role="textbox" aria-multiline="false" placeholder="Day" aria-label="Birthday" minlength="1" maxlength="2">
+                        <input type="tel" pattern="[0-9-() ]*" id="usernamereg-day" name="dd" value={{ table.0.3.day }} aria-required="true" role="textbox" aria-multiline="false" placeholder="Day" aria-label="Birthday" minlength="1" maxlength="2">
                     </div>
                     <div class="pure-u-1-4 reg-year">
-                        <input type="tel" pattern="[0-9-() ]*" id="usernamereg-year" name="yyyy" value="" aria-required="true" role="textbox" aria-multiline="false" placeholder="Year" aria-label="Birthday" minlength="1" maxlength="4">
+                        <input type="tel" pattern="[0-9-() ]*" id="usernamereg-year" name="yyyy" value={{ table.0.3.year }} aria-required="true" role="textbox" aria-multiline="false" placeholder="Year" aria-label="Birthday" minlength="1" maxlength="4">
                     </div>
 
                 </div>
                  <div id="usernamereg-birthDate" class="pure-u-1-2 reg-month puree-dropdown dropdown">
-                    <select name="gender" id="usernamereg-month" aria-required="true">
-                    <option value="" selected="" disabled="">gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Other</option>
+                    <select name="gender"   id="genderid" aria-required="true">
+                    <option     disabled="">gender</option>
+                    <option       value="Male">Male</option>
+                    <option    value="Female">Female</option>
+                    <option     value="Other">Other</option>
                     </select>
                     <div class="arrow"></div>
                 </div>
-                 <input type="text" name="incom" value=""  aria-required="true"    placeholder="Income" autocomplete="off"> 
-                 <input type="text" name="relig" value=""  aria-required="true"    placeholder="Religion" autocomplete="off"><input name="educs" type="text" value=""  aria-required="true"    placeholder="Education_Status" autocomplete="off"> 
-                  <input type="text" name="constit" value=""  aria-required="true"    placeholder="Constituency" autocomplete="off"> 
+                 <input type="text" name="incom" value="{{ table.0.6}}"  aria-required="true"    placeholder="Income" autocomplete="off"> 
+                 <input type="text" name="relig" value="{{ table.0.9}}"  aria-required="true"    placeholder="Religion" autocomplete="off">
+                 <input name="educs" type="text" value="{{ table.0.7}}"  aria-required="true"    placeholder="Education_Status" autocomplete="off"> 
+                  <input type="text" name="constit" value="{{constituency_name.0.0 }}"  aria-required="true"    placeholder="Constituency" autocomplete="off"> 
                  <div id="usernamereg-birthDate" class="pure-u-1-2 reg-month puree-dropdown dropdown">
-                        <select name="mm" id="usernamereg-month" aria-required="true">
+                        <select name="mm" id="vtype" aria-required="true">
                         <option value="" selected="" disabled="">Verification Type</option>
                         <option value="1">Aadhar</option>
                         <option value="2">Passport</option>
@@ -126,13 +127,13 @@
     
 
                <div class="cta-container">
-                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Request to apply changes 
+                    <button id="reg-submit-button" name="submit" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Request to apply changes 
                     </button>
                 </div>
-
+<!-- 
                 <div class="cta-container">
-                    <button id="reg-submit-button" name="signup" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Reset</button>
-                </div>
+                    <button id="reg-submit-button" onClick="window.location.reload();" name="reset" type="submit" data-rapid-tracking="true" data-ylk="elm:btn;elmt:nxt;slk:continue;mKey:registration-continue" class="pure-button puree-button-primary puree-spinner-button">Reset</button>
+                </div> -->
          
                 <input type="hidden" data-name="alt-submit"></form>
             </div>
@@ -141,4 +142,20 @@
 </div>
    
 <script src="{% static 'js/voter_official.js' %}"></script>
+<script>
+// credits:    https://stackoverflow.com/questions/30488270/select-default-value-of-select-element-in-django
+var obj = document.getElementById("genderid");
+for(i=0; i<obj.options.length; i++){
+    if(obj.options[i].value ==  "{{ table.0.5}}" ){
+        obj.selectedIndex = i;
+    }
+}
+var obj = document.getElementById("usernamereg-month");
+for(i=0; i<obj.options.length; i++){
+    if(obj.options[i].value ==  {{ table.0.3.month}} ){
+        obj.selectedIndex = i;
+    }
+}
+// x x x x x x x
+ </script>
 {%endblock%}
