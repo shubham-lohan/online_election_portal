@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
@@ -25,20 +25,27 @@ def login(request):
             dict = request.POST.dict();
             print(dict);
             user = authenticate(request, username=dict['username'], password=dict['password'])
+            user="A"
             if(user is not None):
                 connection=connectit()
                 cursor=connection.cursor()
                 cursor.execute("""use Election""")
                 xxx="Tc8IFClQV0HQvXNnbtAD6PWCVOBI8p9SFXzC5hg0AJbaXArOAp3JaMaFBWeE8qPrSEIdDtflNZC9rxeAp7n1uJRRa7tSwRuI5D66"
 
-                cursor.execute("select id from person where token=\""+xxx+"\"")  
+                cursor.execute("select ID from person where Token=\""+xxx+"\"")  
                 table=cursor.fetchall()
+                print("A")
+                print(table)
                 vid=table[0][0]
-                cursor.execute("select id from voter id="+str(vid))  
+                cursor.execute("select id from voter where id="+str(vid))  
                 table=cursor.fetchall()
                 request.method = "blah"
+                cursor.close()
+                connection.commit()
+                connection.close()
                 if(len(table)>0):
                     return render(request, "voter_view2.html")
+                redirect("login/voter_view2")
                 else:
                     return HttpResponse('request view page should be opened');
             else:
@@ -159,7 +166,7 @@ def f_voter_view1(request):
         cursor.execute("""select person.FirstName,person.LastName,Political_Party.name,Political_Party.symbol,x.candid from person,Political_Party,Member_Of,
         (select Stands_From.id as candid from Constituency, voter,Stands_From
         where voter.id=1 and Constituency.id=voter.constituency_id and Stands_From.constituency_id=Constituency.id and Stands_From.election_id=5) as x
-        where  x.candid=Member_Of.Candidate_id and Member_Of.Party_ID=Political_Party.id and x.candid=person.id""")
+        where  x.candid=Member_Of.Candidate_id and Member_Of.Party_ID=Political_Party.id and x.candid=person.ID""")
         table=cursor.fetchall()
         # print(table)
         print("i2")
@@ -193,7 +200,7 @@ def f_voter_view2(request):
         cursor.execute("""use Election""")
 
         cursor.execute("update person set FirstName=\""+dict['firstName']+"\", LastName=\""+dict['lastName']+"\", DOB=Date(\""+ bod+"\"), PhoneNumber=\""+dict['phone']+"\", Gender=\""+gender+"\", Income="+dict['incom']+", education=\""+dict['educs']+"\", religion=\""+dict['relig']+"\" where Token=\""+dict['xxx']+"\"")
-        cursor.execute("select id from person where token=\"xxx\" ")
+        cursor.execute("select ID from person where Token=\"xxx\" ")
         table=cursor.fetchall()
         id=table[0][0]
 
@@ -233,7 +240,7 @@ def f_voter_view3(request):
 
    
     xxx="Tc8IFClQV0HQvXNnbtAD6PWCVOBI8p9SFXzC5hg0AJbaXArOAp3JaMaFBWeE8qPrSEIdDtflNZC9rxeAp7n1uJRRa7tSwRuI5D66"
-    cursor.execute("select  id from   person where Token=\""+xxx+"\"" )
+    cursor.execute("select  ID from   person where Token=\""+xxx+"\"" )
     table=cursor.fetchall()
     print("table1")
     print(table)
