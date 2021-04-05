@@ -5,7 +5,7 @@ from .views import home, login, cand_profile, register_candidate, register_party
 urlpatterns = [
     path('', home, name='home'),
     path(r'login', login, name='login'),
-    path('register', register, name='register'),
+    path('register', register_voter, name='register'),
     path('profile/candidate', cand_profile, name='cand_profile'),
     path('profile/ec_official', ec_official_profile, name='ec_official_profile'),
     path('profile/admin_official', admin_official_profile, name='admin_official_profile'),
