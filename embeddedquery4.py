@@ -22,30 +22,37 @@ def verification_official():
     connection=connectit()
     cursor=connection.cursor()
     cursor.execute("""use Election""")
-    cursor.execute("select * from Unverified_User where V_official_id=20214")
+    cursor.execute("select * from Unverified_User where V_official_id=20225")
     table=cursor.fetchall()
 
-    allusers=[]
     count=0
-    filename="verifdoc"
+    fname="verifdoc"
 
     if(len(table)==0):
-        print("You have no users to verify currently.")
+        print("You currently have no users to verify.")
         return
-    print("Unverified ID \t\t\t Verification Document Type")
+    print("Unverified_id \t\t\t Verification_Document_Type")
+
+    uvids=[]
     for i in table:
-        write_file(i[2], filename+str(i[0])+".png")
+        write_file(i[2], fname+str(i[0])+".png")
         print(str(i[0])+"\t\t\t\t "+str(i[1]))
+        uvids.append(i[0])
         count+=1
 
     print("Verification Documents can be viewed from current folder.")
     
-    print("Enter ID of user to verify.")
+    print("Enter Unverified_id of user to verify.")
     print("Enter 'end' to exit.")
     s=input()
+
+    check1=False
+    if int(s) in uvids:
+        check1=True
+
     if(s=="end"):
         return
-    else:
+    elif check1:
         print("Enter 'verify' to confirm verification of user with ID="+s)
         ss=input()
         if ss=="verify":
@@ -99,5 +106,11 @@ def verification_official():
             print("User verified.\nUser Data deleted from 'Unverified_User'.\nUser data added to 'Voter'.")
 
             return
+        else:
+            print("Unverified User with Unverified_id="+s+" not verified.")
+            return
+    else:
+        print("You have entered incorrect Unverified_id.")
+        return
 
 verification_official()
