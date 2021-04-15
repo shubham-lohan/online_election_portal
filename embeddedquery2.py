@@ -45,7 +45,7 @@ try:
     name ="Upper class"),row=1,col=1) 
     #fig.update_layout(barmode='group', xaxis_tickangle=-45)
     #fig.show()
-    third_query = f""" Select Election.id,Election.start_time,COUNT(*) FROM Election INNER JOIN Voted_for on Voted_for.Election_ID=Election.id group by Election.id; 
+    third_query = f""" Select Election.id,Election.start_time,COUNT(*) FROM Election INNER JOIN Voted_for on Voted_for.Election_ID=Election.id group by Election.id ORDER BY Election.id ; 
 			"""
  
     cursor.execute(third_query);
