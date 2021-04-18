@@ -47,12 +47,18 @@ def verification_official():
     s=input()
 
     check1=False
-    if int(s) in uvids:
-        check1=True
 
     if(s=="end"):
         return
-    elif check1:
+    else:
+        try:
+            if int(s) in uvids:
+                check1=True
+        except:
+            print("Incorrect Input.")
+            return
+
+    if check1:
         print("Enter 'verify' to confirm verification of user with ID="+s)
         ss=input()
         if ss=="verify":
