@@ -1,4 +1,4 @@
-># Project मतदान(Translation: Poll)
+# Project मतदान(Translation: Poll)
 
 A mini-world databse to manage Delhi elctions on an online platform. This was created as a group project under the course Fundamentals of Database Systems - CSE-202 under the guidance of Dr. Mukesh Mohania.
 
@@ -22,7 +22,7 @@ The following stakeholders will use our application :
 * Election Commision Officials
 * Verification Authority
 
->## Features
+## Features
 
 >### ER Diagram
 
@@ -33,8 +33,30 @@ The following stakeholders will use our application :
 >### Database Schema
 
 * Created clear and well-defined schemas for all the necessary entities and relationships which were used for populating the DB.
-* Database normalisation was done upto 4NF to eliminate redundancies, insertion, deletion and update anomalies.
+* Database normalisation was done upto Fourth Normal Form(4NF) to eliminate redundancies, insertion, deletion and update anomalies.
 
-References:
+>### Database Population
+
+* Made over 10,000+ data entries into the DB.
+* Several relations include attributes of `BLOB` data type for storing documents such as aadhaar card of voters, criminal history of candidates etc.
+
+#### SQL Server
+
+Hosted the DB on AWS for easier collaboration and access to the DB by all team members.
+
+##### Details:
+
+* username: demo
+* password: q\`?x-\[%zx4S(Fv?e
+* hostname: 31.220.51.212
+
+>### SQL Queries
+(to-do)
+
+>### Web Portal
+(to-do)
+
+### References:
+(to-do)
 Embedded Query 4- 
 https://stackoverflow.com/questions/1294385/how-to-insert-retrieve-a-file-stored-as-a-blob-in-a-mysql-db-using-python for inserting blob object into mysql db.
