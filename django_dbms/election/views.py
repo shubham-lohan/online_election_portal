@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
@@ -9,9 +9,9 @@ from datetime import date
 # Create your views here.
 def connectit():
     mydb = mysql.connector.connect(
-    host="election.cpawyehotia9.ap-south-1.rds.amazonaws.com",
-    user="admin",
-    password="ELECTION12"
+        host="31.220.51.212",
+        user="demo",
+        password="q`?x-[%zx4S(Fv?e"
     )
     return mydb
  
@@ -45,7 +45,7 @@ def login(request):
                 connection.close()
                 if(len(table)>0):
                     return render(request, "voter_view2.html")
-                redirect("login/voter_view2")
+                # redirect("login/voter_view2")
                 else:
                     return HttpResponse('request view page should be opened');
             else:
@@ -275,3 +275,28 @@ def f_voter_view3(request):
 
 def party_view(request):
     return render(request,"party_view.html")
+
+def election_result(request):
+    connection = connectit()
+    cursor = connection.cursor()
+    cursor.execute("""use Election""")
+    query= """select count(distinct Election_ID) from Election.winning_candidate_view;""" # to count no of election held till now
+    cursor.execute(query)
+    no_of_Elections = cursor.fetchall()[0][0]
+    options=["Election "+str(i) for i in range(1,no_of_Elections+1)]
+    if request.method=="POST":
+        # print("button click")
+        # print(request.POST.dict())
+        electionName = request.POST.dict()['option']
+        electionid=int(electionName[-1])
+        result = f"""
+        select
+        W.constituency_id as `Constituency ID` , C.name as `Constituency Name`,C.region as `Region`,concat(P.FirstName," ",P.LastName) as `Wining Candidate`
+        from  Election.winning_candidate_view W ,Election.person P,Election.Constituency C
+        where W.id=P.ID and C.id=W.constituency_id and W.Election_ID={electionid}
+        group by W.Election_ID,W.constituency_id;"""
+        cursor.execute(result)
+        table = cursor.fetchall()
+        return render(request, "show_result.html", {'table': table, "electionName": electionName})
+    # print("outside")
+    return render(request, "result.html", {"options": options})
