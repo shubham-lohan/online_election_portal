@@ -1,4 +1,4 @@
-# Project मतदान(Translation: Poll)
+# Project मतदान - An Online Voting System
 
 A mini-world database to manage Delhi elctions on an online platform. This was created as a group project under the course Fundamentals of Database Systems - CSE-202 under the guidance of Dr. Mukesh Mohania.
 
