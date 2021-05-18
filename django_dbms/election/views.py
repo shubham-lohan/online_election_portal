@@ -44,8 +44,7 @@ def login(request):
                 connection.commit()
                 connection.close()
                 if(len(table)>0):
-                    return render(request, "voter_view2.html")
-                redirect("login/voter_view2")
+                    return render(request, "voter_view2.html") # redirect("login/voter_view2")
                 else:
                     return HttpResponse('request view page should be opened');
             else:
@@ -155,9 +154,12 @@ def f_voter_view1(request):
     id=table[0][0]
     cursor.execute("select * from Voted_for where Election_ID=6 and voter_id="+str(id));
     table=cursor.fetchall()
-    cid=str(table[0][1])
+    print("table")
+    print(table)
+    
     print(table)
     if len(table)>0:
+        cid=str(table[0][1])
         cursor.execute("select FirstName, LastName from person where id="+str(table[0][1]))  
         table=cursor.fetchall()
         
@@ -245,6 +247,7 @@ def f_voter_view3(request):
     print("table1")
     print(table)
 
+    
     p_id= table[0][0]
     cursor.execute("select  Wealth  from BioData where id="+str(p_id)+" and updated_year="+str(year))
 
