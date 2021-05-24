@@ -30,9 +30,9 @@ The following stakeholders will use our application :
 * Created several entities and relationships between the entities which are necessary for organised functioning in a proper manner.
 * Includes a few but necessary weak entities and an essential tertiary relationship which reduce several complexities in the project. 
 * A snippet of the ER diagram is provided below:
-![Snippet of ER Diagram](https://github.com/basp0/DBMS_django/blob/main/erdiagram.png)
+![Snippet of ER Diagram](ER%20Diagram.jpeg)
 
->### Database Schema
+>### [Database Schema](DBMS%20Schema.pdf)
 
 * Created clear and well-defined schemas for all the necessary entities and relationships which were used for populating the DB.
 * Database normalisation was done upto Fourth Normal Form(4NF) to eliminate redundancies, insertion, deletion and update anomalies.
@@ -41,13 +41,3 @@ The following stakeholders will use our application :
 
 * Made over 10,000+ data entries into the DB.
 * Several relations include attributes of `BLOB` data type for storing documents such as aadhaar card of voters, criminal history of candidates etc.
-
-#### SQL Server
-
-Hosted the DB on AWS for easier collaboration and access to the DB by all team members.
-
-
->### Web Portal
-(to-do)
-
-
