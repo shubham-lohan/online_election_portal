@@ -32,8 +32,6 @@ The following stakeholders will use our application :
 * A snippet of the ER diagram is provided below:
 ![Snippet of ER Diagram](ER%20Diagram.jpeg)
 
-This doc contains info. on views, users, and indexes in database
-https://docs.google.com/document/d/1tMQ6hwORqHBMBuoUQeb1csh3gAodjkH4E3jpZh4lMYk/edit?usp=sharing
 
 >### [Database Schema](DBMS%20Schema.pdf)
 
@@ -52,3 +50,22 @@ https://docs.google.com/document/d/1tMQ6hwORqHBMBuoUQeb1csh3gAodjkH4E3jpZh4lMYk/
 
 * Embedded query 3: 
 <img src="https://github.com/basp0/DBMS_django/blob/main/embdquery3.png" width="800" >
+
+># Documents Links (Restricted)
+
+[Project Document](https://docs.google.com/document/d/1tMQ6hwORqHBMBuoUQeb1csh3gAodjkH4E3jpZh4lMYk/edit#)
+
+[Presentation](https://docs.google.com/presentation/d/1M86weAZjuSAKmUqfPMnHj-YcVd2k5_3MwSiLCBw5juY/edit?usp=sharing)
+
+[DBMS Queries + FAQ](https://docs.google.com/spreadsheets/d/1r87HHesM2Xclg-P8ADvsxNdGmfNkMdP0q-ZdEwrPZfY/edit?usp=sharing)
+
+
+[References](https://docs.google.com/document/d/1vldJ0R96ztC_2FmJwSfRaSHJMZVHioRtIcHlQOWsYas/edit?usp=sharing)
+
+
+>## Team Members :
+- [Bassam](https://github.com/basp0)
+- [Krishna](https://github.com/nkrishnasatvik)
+- [Kushal](https://github.com/kushal19057)
+- [Shubham](https://github.com/shubham-lohan)
+- [Utkrisht](https://github.com/utkrisht-sikka)
