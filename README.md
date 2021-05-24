@@ -41,3 +41,11 @@ The following stakeholders will use our application :
 
 * Made over 10,000+ data entries into the DB.
 * Several relations include attributes of `BLOB` data type for storing documents such as aadhaar card of voters, criminal history of candidates etc.
+
+>### Embedded Queries
+
+* Embedded query 2: 
+<img src="https://github.com/basp0/DBMS_django/blob/main/embdquery2.png" width="800" >
+
+* Embedded query 3: 
+<img src="https://github.com/basp0/DBMS_django/blob/main/embdquery3.png" width="800" >
