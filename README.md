@@ -76,4 +76,4 @@ Steps to make local database from dump file
 3. On Server menu, click "import data".
 4. Select "import from self contained file" option.
 5. Provide address of .sql file on local computer.
-6. Click on "NEW" button and provide name of file.
+6. Click on "NEW" button and provide name of schema.
