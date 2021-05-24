@@ -15,5 +15,5 @@
 <h2>Info update page</h2>
 <img src="snaps/updatepage.PNG" width="350" >
 <h2>Vote Casting page</h2>
-<img src="snaps/candid_regpage.PNG" width="350" >
+<img src="snaps/voting_page.PNG" width="350" >
 
