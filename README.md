@@ -51,9 +51,9 @@ The following stakeholders will use our application :
 * Embedded query 3: 
 <img src="https://github.com/basp0/DBMS_django/blob/main/embdquery3.png" width="800" >
 
-># Documents Links (Restricted)
+># Documents Links 
 
-[Project Document](https://docs.google.com/document/d/1tMQ6hwORqHBMBuoUQeb1csh3gAodjkH4E3jpZh4lMYk/edit#)
+[Project Document](https://docs.google.com/document/d/1tMQ6hwORqHBMBuoUQeb1csh3gAodjkH4E3jpZh4lMYk/edit?usp=sharing)
 
 [Presentation](https://docs.google.com/presentation/d/1M86weAZjuSAKmUqfPMnHj-YcVd2k5_3MwSiLCBw5juY/edit?usp=sharing)
 
