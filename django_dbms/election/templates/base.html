@@ -32,7 +32,7 @@
                     data-target="#defaultNavbar1" aria-expanded="false"><span class="sr-only">Toggle
                         navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
                         class="icon-bar"></span></button>
-                <a class="navbar-brand" style="color: whitesmoke; font-size: 35px;" href="{% url 'home' %}">Delhi
+                <a class="navbar-brand" style="color: whitesmoke; font-size: 35px;" href="{% url 'home'%}">Delhi
                     State
                     Assembly
                     Elections</a>
@@ -40,7 +40,11 @@
             <div class="collapse navbar-collapse" id="defaultNavbar1">
                 <ul class=" nav navbar-nav navbar-right">
                     <!--add some details here -->
-                    <li><a href="{% url 'voter_view2' %}"> <span class="glyphicon glyphicon-info-sign"></span>About</a></li>
+                    <li>
+                        <a > 
+                        <span class="glyphicon glyphicon-info-sign"></span>About
+                        </a>
+                    </li>
                     {% block rightlist %}
 
                     {% endblock %}

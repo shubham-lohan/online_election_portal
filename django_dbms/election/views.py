@@ -1,12 +1,27 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.http import HttpResponse
+from django.http import HttpResponse 
+from django.http import HttpResponsePermanentRedirect
 from base64 import b64encode
 import mysql.connector
 from datetime import date
   
 # Create your views here.
+def authenticate(username, password):
+
+    connection = connectit()
+    cursor = connection.cursor()
+    cursor.execute("""use Election""")
+    cursor.execute("select Token from person where ID=\""+username+"\"") 
+    table = cursor.fetchall()
+    if(table[0][0] == password):
+        return username
+    else:
+        return None
+
+
+
 def connectit():
     mydb = mysql.connector.connect(
     host="election.cpawyehotia9.ap-south-1.rds.amazonaws.com",
@@ -23,28 +38,31 @@ def home(request):
 def login(request):
     if(request.method == "POST"):
             dict = request.POST.dict();
-            print(dict);
-            user = authenticate(request, username=dict['username'], password=dict['password'])
-            user="A"
+            # print(dict);
+            user = authenticate(username=dict['username'], password=dict['password'])
+             
             if(user is not None):
+                
+
                 connection=connectit()
                 cursor=connection.cursor()
                 cursor.execute("""use Election""")
-                xxx="Tc8IFClQV0HQvXNnbtAD6PWCVOBI8p9SFXzC5hg0AJbaXArOAp3JaMaFBWeE8qPrSEIdDtflNZC9rxeAp7n1uJRRa7tSwRuI5D66"
-
-                cursor.execute("select ID from person where Token=\""+xxx+"\"")  
+               
+                 
+                
+                cursor.execute("select id from voter where id="+user)  
                 table=cursor.fetchall()
-                print("A")
-                print(table)
-                vid=table[0][0]
-                cursor.execute("select id from voter where id="+str(vid))  
-                table=cursor.fetchall()
-                request.method = "blah"
+                request.method = "notpost"
+                # so that request.method is not POST
                 cursor.close()
                 connection.commit()
                 connection.close()
+                # check whether person is voter
                 if(len(table)>0):
-                    return render(request, "voter_view2.html") # redirect("login/voter_view2")
+
+                    return redirect("voter_view2", id = user, permanent = True)
+                  
+
                 else:
                     return HttpResponse('request view page should be opened');
             else:
@@ -87,11 +105,11 @@ def cand_profile(request):
 
 
 
-def register_candidate(request):
-    return render(request, "candidate_registration.html")
+def register_candidate(request, id):
+    return render(request, "candidate_registration.html",  {'id':id})
 
 
-def register_party(request):
+def register_party(request, id):
     return render(request, "party_registration.html")
 
 
@@ -112,7 +130,7 @@ def register_voter(request):
 def register_official(request):
     return render(request, "official_registration.html")
 
-def f_voter_view1(request):
+def f_voter_view1(request, id):
     if(request.method == "POST"):
             dict = request.POST.dict();
 
@@ -123,7 +141,7 @@ def f_voter_view1(request):
             cursor=connection.cursor()
             cursor.execute("""use Election""")
 
-            cursor.execute("select * from Voted_for where Election_ID=6 and voter_id=1");
+            cursor.execute("select * from Voted_for where Election_ID=6 and voter_id="+id);
             table=cursor.fetchall()
             print("i3")
             print(table)
@@ -136,7 +154,7 @@ def f_voter_view1(request):
                 cursor.close()
                 connection.commit()
                 connection.close()
-                return render(request, "voter_view2.html")
+                return render(request, "voter_view2.html", {'id' : id})
              
             
 
@@ -147,17 +165,13 @@ def f_voter_view1(request):
     # print("blahblahblahblahblah")
     # print(cursor)
     cursor.execute("use Election")
-    xxx="Tc8IFClQV0HQvXNnbtAD6PWCVOBI8p9SFXzC5hg0AJbaXArOAp3JaMaFBWeE8qPrSEIdDtflNZC9rxeAp7n1uJRRa7tSwRuI5D66"
-
-    cursor.execute("select * from person where token=\""+xxx+"\"")  
-    table=cursor.fetchall()
-    id=table[0][0]
+     
     cursor.execute("select * from Voted_for where Election_ID=6 and voter_id="+str(id));
     table=cursor.fetchall()
     print("table")
     print(table)
     
-    print(table)
+   
     if len(table)>0:
         cid=str(table[0][1])
         cursor.execute("select FirstName, LastName from person where id="+str(table[0][1]))  
@@ -179,9 +193,12 @@ def f_voter_view1(request):
         connection.close()
         # print("b2")
         # print(imgs)
-        return render(request, "voter_view1.html",{  'imgs':imgs, 'n':range(len(table))})
+        return render(request, "voter_view1.html",{  'imgs':imgs, 'n':range(len(table)) , 'id':id})
 
-def f_voter_view2(request):
+def f_voter_view2(request, id):
+    # f_voter_view1(request);
+    # print("idh")
+    # print(id)
     if(request.method == "POST"):
         dict = request.POST.dict();
         gender = request.POST.get("gender");
@@ -201,10 +218,8 @@ def f_voter_view2(request):
         cursor=connection.cursor()
         cursor.execute("""use Election""")
 
-        cursor.execute("update person set FirstName=\""+dict['firstName']+"\", LastName=\""+dict['lastName']+"\", DOB=Date(\""+ bod+"\"), PhoneNumber=\""+dict['phone']+"\", Gender=\""+gender+"\", Income="+dict['incom']+", education=\""+dict['educs']+"\", religion=\""+dict['relig']+"\" where Token=\""+dict['xxx']+"\"")
-        cursor.execute("select ID from person where Token=\"xxx\" ")
-        table=cursor.fetchall()
-        id=table[0][0]
+        cursor.execute("update person set FirstName=\""+dict['firstName']+"\", LastName=\""+dict['lastName']+"\", DOB=Date(\""+ bod+"\"), PhoneNumber=\""+dict['phone']+"\", Gender=\""+gender+"\", Income="+dict['incom']+", education=\""+dict['educs']+"\", religion=\""+dict['relig']+"\" where ID="+id)
+      
 
         # cursor.execute("insert into Unverified_User values("+id+)
         # cursor.execute("delete from voter where Token=\""+dict['xxx']+"\"")
@@ -214,42 +229,33 @@ def f_voter_view2(request):
         connection.commit()
         connection.close()
         return HttpResponse("your request is pending")
-    return justload(request)
+    return justload(request, id)
 
-def justload(request):
+def justload(request, id):
     connection=connectit()
     cursor=connection.cursor()
     cursor.execute("""use Election""")
-    xxx="Tc8IFClQV0HQvXNnbtAD6PWCVOBI8p9SFXzC5hg0AJbaXArOAp3JaMaFBWeE8qPrSEIdDtflNZC9rxeAp7n1uJRRa7tSwRuI5D66"
-
-    cursor.execute("select * from person where token=\""+xxx+"\"")  
+    
+    cursor.execute("select * from person where ID="+id)  
     table=cursor.fetchall()
-    id=table[0][0]
-    print("id")
-    print(id)
+    
+    
     cursor.execute("select name from voter,Constituency where voter.id="+str(id)+" and Constituency.id=voter.constituency_id")  
     constituency_name= cursor.fetchall()
     cursor.close()
     connection.commit()
     connection.close()
-    return render(request, "voter_view2.html",{'table': table, 'constituency_name':constituency_name})
+    return render(request, "voter_view2.html",{'table': table, 'constituency_name':constituency_name, 'id': id})
 
-def f_voter_view3(request):
+def f_voter_view3(request, id):
     year=date.today().year
     connection=connectit()
     cursor=connection.cursor()
     cursor.execute("""use Election""")
 
    
-    xxx="Tc8IFClQV0HQvXNnbtAD6PWCVOBI8p9SFXzC5hg0AJbaXArOAp3JaMaFBWeE8qPrSEIdDtflNZC9rxeAp7n1uJRRa7tSwRuI5D66"
-    cursor.execute("select  ID from   person where Token=\""+xxx+"\"" )
-    table=cursor.fetchall()
-    print("table1")
-    print(table)
-
-    
-    p_id= table[0][0]
-    cursor.execute("select  Wealth  from BioData where id="+str(p_id)+" and updated_year="+str(year))
+   
+    cursor.execute("select  Wealth  from BioData where id="+str(id)+" and updated_year="+str(year))
 
     table=cursor.fetchall()
     print("table2")
@@ -262,10 +268,10 @@ def f_voter_view3(request):
         dict = request.POST.dict();
         wealths=dict['weal']
         if(wealths==""):
-            cursor.execute("insert into BioData values("+str(p_id)+","+str(dict['weal'])+","+str(year)+")")
+            cursor.execute("insert into BioData values("+str(id)+","+str(dict['weal'])+","+str(year)+")")
             
         else:
-            cursor.execute("update BioData set Wealth="+str(dict['weal'])+" where id="+str(p_id) +" and updated_year="+str(year)) 
+            cursor.execute("update BioData set Wealth="+str(dict['weal'])+" where id="+str(id) +" and updated_year="+str(year)) 
     connection.commit()   
     # print("id")
     # print(id)
@@ -274,7 +280,7 @@ def f_voter_view3(request):
     cursor.close()
     connection.commit()
     connection.close()
-    return render(request, "voter_view3.html",{'wealth': wealths ,'year':year})
+    return render(request, "voter_view3.html",{'wealth': wealths ,'year':year, 'id': id})
 
 def party_view(request):
     return render(request,"party_view.html")

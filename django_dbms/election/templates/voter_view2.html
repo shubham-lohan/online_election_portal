@@ -15,10 +15,10 @@
 </li>
 {% endblock %}
 {% block leftlist %}
-<li><a href="{% url 'voter_view1' %}"> Cast vote</a></li>
-<li><a href="{% url 'voter_view2' %}">Personal Details</a></li>
-<li><a href="{% url 'reg_cand' %}">Candidate</a></li>
-<li><a href="{% url 'voter_view3' %}">Wealth Update</a></li>
+<li><a href="{% url 'voter_view1' id %}"> Cast vote</a></li>
+<li><a href="{% url 'voter_view2' id %}">Personal Details</a></li>
+<li><a href="{% url 'reg_cand' id %}">Candidate</a></li>
+<li><a href="{% url 'voter_view3' id %}">Wealth Update</a></li>
 
 {% endblock %}
 
@@ -26,10 +26,10 @@
     
 <!-- <div id="mySidenav" class="sidenav">
   <a   class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="{% url 'voter_view1' %}"> Cast vote</a>
-  <a href="{% url 'voter_view2' %}">Personal Details</a>
-  <a href="{% url 'reg_cand' %}">Candidate</a>
-  <a href="{% url 'voter_view3' %}">Wealth/Profession Update</a>
+  <a href="{% url 'voter_view1' id %}"> Cast vote</a>
+  <a href="{% url 'voter_view2' id %}">Personal Details</a>
+  <a href="{% url 'reg_cand' id %}">Candidate</a>
+  <a href="{% url 'voter_view3' id %}">Wealth/Profession Update</a>
 
 </div> -->
 
@@ -42,7 +42,7 @@
                 <h1 class="txt-align-center header-text"> General    Info   </h1>
                 <p>Refresh the page to reset the values</p>
         
-                <form id="regform" action="{% url 'voter_view2' %}" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
+                <form id="regform" action="{% url 'voter_view2' id %}" class="pure-form pure-form-stacked oneid-form-background reg-form grid-form" method="post" novalidate="">
 {% csrf_token %}           
     
     
@@ -60,11 +60,11 @@
                     </div>
                 </fieldset>
 
-                <div class="password-field ">
+               <!--  <div class="password-field ">
                     <input type="password" id="usernamereg-password" autocomplete="new-password" name="password" placeholder="Password" aria-label="Password" maxlength="128" aria-required="true" aria-invalid="false" class="">
                     
                     <div id="reg-error-password" data-error="" class=""></div>
-                </div>
+                </div> -->
     
         
         

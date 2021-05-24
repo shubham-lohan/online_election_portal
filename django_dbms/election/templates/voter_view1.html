@@ -16,10 +16,10 @@
 </li>
 {% endblock %}
 {% block leftlist %}
-<li><a href="{% url 'voter_view1' %}"> Cast vote</a></li>
-<li><a href="{% url 'voter_view2' %}">Personal Details</a></li>
-<li><a href="{% url 'reg_cand' %}">Candidate</a></li>
-<li><a href="{% url 'voter_view3' %}">Wealth Update</a></li>
+<li><a href="{% url 'voter_view1' id%}"> Cast vote</a></li>
+<li><a href="{% url 'voter_view2' id %}">Personal Details</a></li>
+<li><a href="{% url 'reg_cand' id %}">Candidate</a></li>
+<li><a href="{% url 'voter_view3' id%}">Wealth Update</a></li>
 
 {% endblock %}
 
@@ -27,10 +27,10 @@
 
 <!-- <div id="mySidenav" class="sidenav">
   <a   class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="{% url 'voter_view1' %}"> Cast vote</a>
-  <a href="{% url 'voter_view2' %}">Personal Details</a>
-  <a href="{% url 'reg_cand' %}">Candidate</a>
-  <a href="{% url 'voter_view3' %}">Wealth/Profession Update</a>
+  <a href="{% url 'voter_view1' id %}"> Cast vote</a>
+  <a href="{% url 'voter_view2' id %}">Personal Details</a>
+  <a href="{% url 'reg_cand' id %}">Candidate</a>
+  <a href="{% url 'voter_view3' id %}">Wealth/Profession Update</a>
   
 </div> -->
 
@@ -39,7 +39,7 @@
      
      <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  </span> -->
     <!-- credits https://codepen.io/jkantner/pen/rNaPadg -->
-    <form class="choices"   action="{% url 'voter_view1' %}" , method="post">
+    <form class="choices"   action="{% url 'voter_view1' id %}" , method="post">
 {% csrf_token %}
         {% for t in imgs %}
         <div >
