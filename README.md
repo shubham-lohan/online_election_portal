@@ -24,3 +24,5 @@ Voter can update his info. here. His update request will be sent to verification
 <h2>Vote Casting page</h2>
 <img src="snaps/votingpage.png" width="500" >
 
+
+
