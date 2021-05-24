@@ -64,8 +64,8 @@ The following stakeholders will use our application :
 
 
 >## Team Members :
-- [Bassam](https://github.com/basp0)
-- [Krishna](https://github.com/nkrishnasatvik)
-- [Kushal](https://github.com/kushal19057)
-- [Shubham](https://github.com/shubham-lohan)
 - [Utkrisht](https://github.com/utkrisht-sikka)
+- [Krishna](https://github.com/nkrishnasatvik)
+- [Shubham](https://github.com/shubham-lohan)
+- [Kushal](https://github.com/kushal19057)
+- [Bassam](https://github.com/basp0)
