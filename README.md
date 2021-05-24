@@ -46,6 +46,6 @@ Hosted the DB on AWS for easier collaboration and access to the DB by all team m
 
 
 >### Web Portal
-(to-do)
+Head over to web branch to see our UI work.
 
 
