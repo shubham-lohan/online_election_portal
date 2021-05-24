@@ -44,19 +44,8 @@ The following stakeholders will use our application :
 
 Hosted the DB on AWS for easier collaboration and access to the DB by all team members.
 
-##### Details:
-
-* username: demo
-* password: q\`?x-\[%zx4S(Fv?e
-* hostname: 31.220.51.212
-
->### SQL Queries
-(to-do)
 
 >### Web Portal
 (to-do)
 
-### References:
-(to-do)
-Embedded Query 4- 
-https://stackoverflow.com/questions/1294385/how-to-insert-retrieve-a-file-stored-as-a-blob-in-a-mysql-db-using-python for inserting blob object into mysql db.
+
