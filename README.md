@@ -30,7 +30,7 @@ The following stakeholders will use our application :
 * Created several entities and relationships between the entities which are necessary for organised functioning in a proper manner.
 * Includes a few but necessary weak entities and an essential tertiary relationship which reduce several complexities in the project. 
 * A snippet of the ER diagram is provided below:
-![Snippet of ER Diagram](ER%20Diagram.jpeg)
+![Snippet of ER Diagram](img/ER%20Diagram.jpeg)
 
 
 >### [Database Schema](DBMS%20Schema.pdf)
@@ -46,10 +46,10 @@ The following stakeholders will use our application :
 >### Embedded Queries
 
 * Embedded query 2: 
-<img src="https://github.com/basp0/DBMS_django/blob/main/embdquery2.png" width="800" >
+<img src="img/embdquery2.png" width="800" >
 
 * Embedded query 3: 
-<img src="https://github.com/basp0/DBMS_django/blob/main/embdquery3.png" width="800" >
+<img src="img/embdquery3.png" width="800" >
 
 ># Documents Links 
 
