@@ -32,6 +32,9 @@ The following stakeholders will use our application :
 * A snippet of the ER diagram is provided below:
 ![Snippet of ER Diagram](ER%20Diagram.jpeg)
 
+This doc contains info. on views, users, and indexes in database
+https://docs.google.com/document/d/1tMQ6hwORqHBMBuoUQeb1csh3gAodjkH4E3jpZh4lMYk/edit?usp=sharing
+
 >### [Database Schema](DBMS%20Schema.pdf)
 
 * Created clear and well-defined schemas for all the necessary entities and relationships which were used for populating the DB.
