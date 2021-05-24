@@ -29,6 +29,8 @@ The following stakeholders will use our application :
 * Created an ER diagram for designing the database which helped to get a clear idea and decide the various logic elements needed for building the database.
 * Created several entities and relationships between the entities which are necessary for organised functioning in a proper manner.
 * Includes a few but necessary weak entities and an essential tertiary relationship which reduce several complexities in the project. 
+* A snippet of the ER diagram is provided below:
+![Snippet of ER Diagram](https://github.com/basp0/DBMS_django/blob/main/erdiagram.png)
 
 >### Database Schema
 
@@ -46,6 +48,6 @@ Hosted the DB on AWS for easier collaboration and access to the DB by all team m
 
 
 >### Web Portal
-Head over to web branch to see our UI work.
+(to-do)
 
 
