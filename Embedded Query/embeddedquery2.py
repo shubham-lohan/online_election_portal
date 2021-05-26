@@ -8,7 +8,7 @@ try:
 
 
     check = "Select AVG(income)as average,AVG(income)-stddev(income) as lower_bound,AVG(income)+stddev(income) as upper_bound,MAX(Election.id) from person,Election;"
-    cnx = connect(user ='admin', password= 'ELECTION12', host = 'election.cpawyehotia9.ap-south-1.rds.amazonaws.com',port='3306', database='Election')
+    cnx = #connection info
 
     cursor = cnx.cursor()
     
