@@ -6,7 +6,7 @@ try:
 
 
     check = "Select Political_Party.name as name,YEAR(Election.start_time) as st,Sum(Money_Spent)     from ( Political_Party INNER JOIN Member_Of ON Member_Of.Party_ID=Political_Party.id) INNER     JOIN Election ON Election.id = Member_Of.Election_id group by name,st ;"
-    cnx = connect(user ='admin', password= 'ELECTION12', host = 'election.cpawyehotia9.ap-south-1.rds.amazonaws.com',port='3306', database='Election')
+    cnx = #connection info
 
     cursor = cnx.cursor()
     
