@@ -4,10 +4,7 @@ from datetime import datetime
 import time
 
 def connectit():
-    mydb = mysql.connector.connect(
-    host="election.cpawyehotia9.ap-south-1.rds.amazonaws.com",
-    user="admin",
-    password="ELECTION12"
+  #connection info
     )
     return mydb
 
